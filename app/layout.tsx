@@ -14,7 +14,8 @@ const spaceMono = Space_Mono({
 
 export const metadata = {
   title: "Twitter OG",
-  description: "Bring back OG metdata to Twitter",
+  description:
+    "Replace twitter.com with twitter-og.com when you share a tweet to show previews again!",
 };
 
 export default function RootLayout({
