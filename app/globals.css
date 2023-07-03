@@ -17,6 +17,7 @@
 }
 
 body {
+  @apply font-sans;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -24,4 +25,16 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+@layer base {
+  :not(pre) > code {
+    @apply bg-gray-600 rounded px-1 text-base font-mono;
+  }
+  a {
+    @apply text-cyan-400 transition duration-100;
+  }
+  a:hover {
+    @apply text-cyan-300 transition duration-100;
+  }
 }
