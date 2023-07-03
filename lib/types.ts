@@ -21,6 +21,56 @@ export interface TweetData {
   isStaleEdit: boolean;
 }
 
+export interface Photo {
+  backgroundColor: {
+    red: number;
+    green: number;
+    blue: number;
+  };
+  cropCandidates: {
+    x: number;
+    y: number;
+    w: number;
+    height: number;
+  }[];
+  expandedUrl: string;
+  url: string;
+  width: number;
+  height: number;
+}
+
+export interface Video {
+  aspectRatio: [number, number];
+  durationMs: number;
+  mediaAvailability: {
+    status: string;
+  };
+  poster: string;
+  variants: VideoVariant[];
+  videoId: {
+    type: string;
+    id: string;
+  };
+  viewCount: number;
+}
+
+export interface Media {
+  display_url: string;
+  expanded_url: string;
+  indices: Indices;
+  url: string;
+}
+
+export interface User {
+  id_str: string;
+  name: string;
+  profile_image_url_https: string;
+  screen_name: string;
+  verified: boolean;
+  is_blue_verified: boolean;
+  profile_image_shape: string;
+}
+
 interface Entities {
   hashtags: Hashtag[];
   urls: Url[];
@@ -45,23 +95,6 @@ interface UserMention {
   indices: Indices;
   name: string;
   screen_name: string;
-}
-
-export interface Media {
-  display_url: string;
-  expanded_url: string;
-  indices: Indices;
-  url: string;
-}
-
-export interface User {
-  id_str: string;
-  name: string;
-  profile_image_url_https: string;
-  screen_name: string;
-  verified: boolean;
-  is_blue_verified: boolean;
-  profile_image_shape: string;
 }
 
 interface EditControl {
@@ -115,39 +148,6 @@ interface Variant {
   bitrate: number;
   content_type: string;
   url: string;
-}
-
-export interface Photo {
-  backgroundColor: {
-    red: number;
-    green: number;
-    blue: number;
-  };
-  cropCandidates: {
-    x: number;
-    y: number;
-    w: number;
-    height: number;
-  }[];
-  expandedUrl: string;
-  url: string;
-  width: number;
-  height: number;
-}
-
-export interface Video {
-  aspectRatio: [number, number];
-  durationMs: number;
-  mediaAvailability: {
-    status: string;
-  };
-  poster: string;
-  variants: VideoVariant[];
-  videoId: {
-    type: string;
-    id: string;
-  };
-  viewCount: number;
 }
 
 interface VideoVariant {
