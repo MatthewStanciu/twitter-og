@@ -3,9 +3,8 @@ import type { NextRequest } from "next/server";
 
 function parseUrl(url: string) {
   const urlSplit = url.split("/");
-  console.log({ urlSplit });
-  const username = urlSplit[urlSplit.length - 3];
-  const id = urlSplit[urlSplit.length - 1];
+  const username = urlSplit[3];
+  const id = urlSplit[5];
   return { username, id };
 }
 
@@ -13,7 +12,6 @@ const detectBot = (req: NextRequest) => {
   const url = req.nextUrl;
   if (url.searchParams.get("bot")) return true;
   const ua = req.headers.get("User-Agent");
-  console.log({ ua });
   if (ua) {
     /* Note:
      * - bot is for most bots & crawlers
@@ -34,9 +32,14 @@ export function middleware(req: NextRequest) {
   if (isBot) {
     const { username, id } = parseUrl(req.url);
     console.log({ username, id });
-    console.log(new URL(`/_proxy/${username}/status/${id}`, req.url));
     return NextResponse.rewrite(
-      new URL(`/_proxy/${username}/status/${id}`, req.url)
+      new URL(`/bot/${username}/status/${id}`, req.url)
     );
   }
 }
+
+export const config = {
+  matcher: [
+    "/((?!_next/|bot/|_static|_vercel|favicon.ico|sitemap.xml|apple-touch-icon-precomposed.png|apple-touch-icon.png).*)",
+  ],
+};

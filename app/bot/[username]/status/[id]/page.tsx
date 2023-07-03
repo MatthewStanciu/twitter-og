@@ -31,6 +31,5 @@ export async function generateMetadata({
 }
 
 export default function Page() {
-  console.log("youre here!");
   return <h1>hi</h1>;
 }

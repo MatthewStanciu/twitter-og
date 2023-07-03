@@ -14,7 +14,6 @@ export default async function Icon({
 }: {
   params: { username: string; id: string };
 }) {
-  console.log({ params });
   const { username, id } = params;
   const { user } = await fetchTweet(id);
   const avatarUrl = user.profile_image_url_https;
