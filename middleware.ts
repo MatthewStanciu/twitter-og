@@ -3,8 +3,9 @@ import type { NextRequest } from "next/server";
 
 function parseUrl(url: string) {
   const urlSplit = url.split("/");
-  const username = urlSplit[3];
-  const id = urlSplit[5];
+  console.log({ urlSplit });
+  const username = urlSplit[urlSplit.length - 3];
+  const id = urlSplit[urlSplit.length - 1];
   return { username, id };
 }
 
@@ -21,7 +22,7 @@ const detectBot = (req: NextRequest) => {
      * - WhatsApp is for WhatsApp crawler
      * - MetaInspector is for https://metatags.io/
      */
-    return /bot|chatgpt|facebookexternalhit|WhatsApp|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|MetaInspector/i.test(
+    return /bot|chatgpt|facebookexternalhit|WhatsApp|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|MetaInspector|node-fetch|axios|got/i.test(
       ua
     );
   }
@@ -33,13 +34,9 @@ export function middleware(req: NextRequest) {
   if (isBot) {
     const { username, id } = parseUrl(req.url);
     console.log({ username, id });
+    console.log(new URL(`/_proxy/${username}/status/${id}`, req.url));
     return NextResponse.rewrite(
       new URL(`/_proxy/${username}/status/${id}`, req.url)
     );
   }
 }
-
-// See "Matching Paths" below to learn more
-export const config = {
-  matcher: "/about/:path*",
-};
