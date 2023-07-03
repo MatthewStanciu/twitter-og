@@ -42,7 +42,6 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    "/((?!_next/|bot/|_static|_vercel|favicon.ico|sitemap.xml|apple-touch-icon-precomposed.png|apple-touch-icon.png).*)",
-  ],
+  // matches [username]/status/[id]
+  matcher: ["/([^/]+)/status/([^/]+)/"],
 };
