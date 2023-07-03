@@ -55,5 +55,5 @@ export async function generateMetadata({
 }
 
 export default function Page() {
-  return <h1>hi</h1>;
+  return <h1>🕊️</h1>;
 }
