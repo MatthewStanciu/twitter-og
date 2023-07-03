@@ -1,4 +1,4 @@
-import { Media, Photo, TweetData, User, Video } from "./types";
+import { Media, MediaDetails, Photo, TweetData, User, Video } from "./types";
 
 interface TweetDataSubset {
   text: string;
@@ -6,6 +6,7 @@ interface TweetDataSubset {
   photos: Photo[];
   video: Video | undefined;
   media: Media[] | undefined;
+  mediaDetails: MediaDetails[];
 }
 
 export async function fetchTweet(id: string): Promise<TweetDataSubset> {
@@ -13,12 +14,13 @@ export async function fetchTweet(id: string): Promise<TweetDataSubset> {
 
   const res = await fetch(`${baseUrl}?id=${id}`);
   const data: TweetData = await res.json();
-  const { text, user, photos, video, entities } = data;
+  const { text, user, photos, video, entities, mediaDetails } = data;
   return {
     text,
     user,
     photos: photos ? photos : [],
     video,
     media: entities.media,
+    mediaDetails,
   };
 }

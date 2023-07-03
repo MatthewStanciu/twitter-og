@@ -9,7 +9,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { username, id } = params;
-  let { text, user, photos, video, media } = await fetchTweet(id);
+  let { text, user, photos, video, media, mediaDetails } = await fetchTweet(id);
 
   if (media) {
     media.map(
@@ -27,6 +27,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${user.name} on Twitter`,
       siteName: "Twitter",
+      // type: video ? "video.other" : "website",
       type: "website",
       description: text,
       url: `https://twitter.com/${username}/status/${id}`,
@@ -39,7 +40,13 @@ export async function generateMetadata({
       description: text,
       creator: user.screen_name,
       images: photoUrls,
-      card: "summary_large_image",
+      card: video ? "player" : "summary_large_image",
+      players: {
+        playerUrl: video.variants[1].src,
+        streamUrl: video.variants[1].src,
+        width: mediaDetails[0].original_info.width,
+        height: mediaDetails[0].original_info.height,
+      },
     },
   };
 }

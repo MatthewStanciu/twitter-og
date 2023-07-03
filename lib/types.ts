@@ -104,7 +104,7 @@ interface EditControl {
   edits_remaining: number;
 }
 
-interface MediaDetails {
+export interface MediaDetails {
   display_url: string;
   expanded_url: string;
   ext_media_availability: {
