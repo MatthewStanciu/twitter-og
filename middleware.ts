@@ -27,7 +27,7 @@ export function middleware(req: NextRequest) {
   const isBot = detectBot(req);
   if (isBot) {
     return NextResponse.rewrite(
-      new URL(`/bot/${username}/status/${id}`, req.url)
+      new URL(`/og/${username}/status/${id}`, req.url)
     );
   } else {
     return NextResponse.redirect(
