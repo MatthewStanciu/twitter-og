@@ -1,4 +1,4 @@
-import { Media, Photo, User, Video } from "./types";
+import { Media, Photo, TweetData, User, Video } from "./types";
 
 interface TweetDataSubset {
   text: string;
@@ -12,7 +12,7 @@ export async function fetchTweet(id: string): Promise<TweetDataSubset> {
   const baseUrl = "https://cdn.syndication.twimg.com/tweet-result";
 
   const res = await fetch(`${baseUrl}?id=${id}`);
-  const data = await res.json();
+  const data: TweetData = await res.json();
   const { text, user, photos, video, entities } = data;
   return {
     text,
