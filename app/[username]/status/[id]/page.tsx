@@ -10,18 +10,29 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { username, id } = params;
-  const { text, user } = await fetchTweet(id);
+  const { text, user, photos, video } = await fetchTweet(id);
+
+  const photoUrls: string[] = [];
+  photos.map((photo) => photoUrls.push(photo.url));
 
   return {
     openGraph: {
       title: `@${user.screen_name} on Twitter`,
+      siteName: "Twitter",
+      type: "website",
       description: text,
       url: `https://twitter.com/${username}/status/${id}`,
+      images: photoUrls,
+      videos: video ? [video.variants[1].src as string] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
     },
   };
 }
 
 export default function Page({ params }: PageProps) {
   const { username, id } = params;
-  return redirect(`https://twitter.com/${username}/status/${id}`);
+  // return redirect(`https://twitter.com/${username}/status/${id}`);
+  return <h1>hi</h1>;
 }
