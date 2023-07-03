@@ -4,8 +4,8 @@ import { ImageResponse } from "next/server";
 export const runtime = "edge";
 
 export const size = {
-  width: 32,
-  height: 32,
+  width: 48,
+  height: 48,
 };
 export const contentType = "image/png";
 
@@ -16,7 +16,7 @@ export default async function Icon({
 }) {
   const { username, id } = params;
   const { user } = await fetchTweet(id);
-  const avatarUrl = user.profile_image_url_https;
+  const avatarUrl = user.profile_image_url_https.replace("normal", "bigger");
 
   return new ImageResponse(
     (
