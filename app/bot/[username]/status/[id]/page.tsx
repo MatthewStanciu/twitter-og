@@ -16,7 +16,7 @@ export async function generateMetadata({
 
   return {
     openGraph: {
-      title: `@${user.screen_name} on Twitter`,
+      title: `@${user.name} on Twitter`,
       siteName: "Twitter",
       type: "website",
       description: text,
