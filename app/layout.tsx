@@ -1,7 +1,5 @@
 import "./globals.css";
-import { Inter, Space_Grotesk, Space_Mono } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Space_Grotesk, Space_Mono } from "next/font/google";
 
 const spaceGrotesk = Space_Grotesk({
   weight: ["400", "700"],
