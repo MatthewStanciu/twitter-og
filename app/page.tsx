@@ -20,7 +20,7 @@ export default function Page() {
           height={90}
         />
         <p>
-          Thankfully, there's still an API for embedding tweets that's still
+          Thankfully, there’s still an API for embedding tweets that’s still
           publicly accessible, which we can use to reconstruct the open graph
           data, so the tweets you share can look like this again:
         </p>
