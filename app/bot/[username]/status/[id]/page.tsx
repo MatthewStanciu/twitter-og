@@ -19,6 +19,7 @@ export async function generateMetadata({
   }
 
   const photoUrls: string[] = [];
+  if (video) photoUrls.push(video.poster);
   photos.map((photo) => photoUrls.push(photo.url));
 
   return {
