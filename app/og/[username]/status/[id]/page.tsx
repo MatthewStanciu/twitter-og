@@ -13,7 +13,7 @@ export async function generateMetadata({
 
   if (media) {
     media.map(
-      (item: any) =>
+      (item) =>
         (text = text.replace(new RegExp("\\s*" + item.url + "\\s*", "g"), ""))
     );
   }
