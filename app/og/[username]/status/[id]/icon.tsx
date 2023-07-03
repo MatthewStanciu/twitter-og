@@ -22,7 +22,7 @@ export default async function Icon({
     (
       // eslint-disable-next-line @next/next/no-img-element
       <img
-        style={{ borderRadius: "50%" }}
+        style={{ borderRadius: "4px" }}
         alt={`Twitter user ${username}'s avatar`}
         src={avatarUrl}
       />
