@@ -28,12 +28,15 @@ const detectBot = (req: NextRequest) => {
 };
 
 export function middleware(req: NextRequest) {
+  const { username, id } = parseUrl(req.url);
   const isBot = detectBot(req);
   if (isBot) {
-    const { username, id } = parseUrl(req.url);
-    console.log({ username, id });
     return NextResponse.rewrite(
       new URL(`/bot/${username}/status/${id}`, req.url)
+    );
+  } else {
+    return NextResponse.redirect(
+      new URL(`/${username}/status/${id}`, "https://twitter.com")
     );
   }
 }
