@@ -30,7 +30,7 @@ export async function generateMetadata({
       description: text,
       url: `https://twitter.com/${username}/status/${id}`,
       images: photoUrls,
-      videos: video ? [video.variants[1].src as string] : undefined,
+      videos: video ? [video.variants[1].src] : undefined,
     },
     twitter: {
       card: "summary_large_image",

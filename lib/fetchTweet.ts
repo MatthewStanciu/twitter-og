@@ -1,10 +1,14 @@
-export async function fetchTweet(id: string): Promise<{
+import { Media, Photo, User, Video } from "./types";
+
+interface TweetDataSubset {
   text: string;
-  user: any;
-  photos: any[];
-  video: any | undefined;
-  media: any | undefined;
-}> {
+  user: User;
+  photos: Photo[];
+  video: Video | undefined;
+  media: Media[] | undefined;
+}
+
+export async function fetchTweet(id: string): Promise<TweetDataSubset> {
   const baseUrl = "https://cdn.syndication.twimg.com/tweet-result";
 
   const res = await fetch(`${baseUrl}?id=${id}`);
