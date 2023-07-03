@@ -75,7 +75,7 @@ interface Entities {
   hashtags: Hashtag[];
   urls: Url[];
   user_mentions: UserMention[];
-  media: Media[];
+  media: Media[] | undefined;
 }
 
 interface Hashtag {
