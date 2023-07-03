@@ -24,6 +24,9 @@ export async function generateMetadata({
 
   return {
     themeColor: "#1ca0f2",
+    alternates: {
+      canonical: `https://twitter.com/${username}/status/${id}`,
+    },
     openGraph: {
       title: `${user.name} on Twitter`,
       siteName: "Twitter",
