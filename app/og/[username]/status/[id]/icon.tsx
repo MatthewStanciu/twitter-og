@@ -4,8 +4,8 @@ import { ImageResponse } from "next/server";
 export const runtime = "edge";
 
 export const size = {
-  width: 48,
-  height: 48,
+  width: 73,
+  height: 73,
 };
 export const contentType = "image/png";
 
