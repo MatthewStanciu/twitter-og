@@ -20,9 +20,9 @@ export default function Page() {
           height={90}
         />
         <p>
-          Thankfully, there’s still an API for embedding tweets that’s still
-          publicly accessible, which we can use to reconstruct the open graph
-          data, so the tweets you share can look like this again:
+          Thankfully, there’s an API for embedding tweets that’s still publicly
+          accessible, which we can use to reconstruct the open graph data, so
+          the tweets you share can look like this again:
         </p>
         <Image
           alt="Screenshot of a link in iMessage with the caption 'I will be frontlining Glastonbury' and with a picture of a bear jumping in shallow water"
