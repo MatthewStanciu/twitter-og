@@ -23,6 +23,7 @@ export async function generateMetadata({
   photos.map((photo) => photoUrls.push(photo.url));
 
   return {
+    themeColor: "#1ca0f2",
     openGraph: {
       title: `${user.name} on Twitter`,
       siteName: "Twitter",
@@ -33,6 +34,11 @@ export async function generateMetadata({
       videos: video ? [video.variants[1].src] : undefined,
     },
     twitter: {
+      title: `${user.name} on Twitter`,
+      site: user.screen_name,
+      description: text,
+      creator: user.screen_name,
+      images: photoUrls,
       card: "summary_large_image",
     },
   };
