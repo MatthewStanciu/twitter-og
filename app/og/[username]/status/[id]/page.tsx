@@ -34,7 +34,13 @@ export async function generateMetadata({
       description: text,
       url: `https://twitter.com/${username}/status/${id}`,
       images: photoUrls,
-      videos: video ? [video.variants[1].src] : undefined,
+      videos: video
+        ? [
+            video.contentType === "gif"
+              ? video.variants[0].src
+              : video.variants[1].src,
+          ]
+        : undefined,
     },
     twitter: {
       title: `${user.name} on Twitter`,

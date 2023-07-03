@@ -41,6 +41,7 @@ export interface Photo {
 
 export interface Video {
   aspectRatio: [number, number];
+  contentType: string;
   durationMs: number;
   mediaAvailability: {
     status: string;
