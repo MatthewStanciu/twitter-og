@@ -4,7 +4,7 @@ Twitter shut down public access to the platform on June 30th, 2023, along with o
 
 <img width="132" alt="Screenshot of a link in iMessage with no OG data" src="https://github.com/MatthewStanciu/twitter-og/assets/14811170/617ffb3d-72d5-46bf-8194-b08037b48554">
 
-Thankfully, there’s still an API for embedding tweets that’s still publicly accessible, which we can use to reconstruct the open graph data, so the tweets you share can look like this again:
+Thankfully, there’s an API for embedding tweets that’s still publicly accessible, which we can use to reconstruct the open graph data, so the tweets you share can look like this again:
 
 <img width="370" alt="Screenshot of a link in iMessage with the caption 'I will be frontlining Glastonbury' and with a picture of a bear jumping in shallow water" src="https://github.com/MatthewStanciu/twitter-og/assets/14811170/22da3f77-b747-4185-8e78-9b91b3a86cda">
 
