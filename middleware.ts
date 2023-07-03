@@ -8,18 +8,13 @@ function parseUrl(url: string) {
   return { username, id };
 }
 
+// Originally written by Steven Tey for dub.sh
+// https://github.com/steven-tey/dub/blob/3112be1e8b8ce5eea09b1fb484afe142a1d9b6ae/lib/middleware/utils.ts#L37C1-L54C3
 const detectBot = (req: NextRequest) => {
   const url = req.nextUrl;
   if (url.searchParams.get("bot")) return true;
   const ua = req.headers.get("User-Agent");
   if (ua) {
-    /* Note:
-     * - bot is for most bots & crawlers
-     * - ChatGPT is for ChatGPT
-     * - facebookexternalhit is for Facebook crawler
-     * - WhatsApp is for WhatsApp crawler
-     * - MetaInspector is for https://metatags.io/
-     */
     return /bot|chatgpt|facebookexternalhit|WhatsApp|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|MetaInspector|node-fetch|axios|got/i.test(
       ua
     );
