@@ -12,9 +12,10 @@ export async function generateMetadata({
   let { text, user, photos, video, media } = await fetchTweet(id);
 
   if (media) {
-    media.map(
-      (item) =>
-        (text = text.replace(new RegExp("\\s*" + item.url + "\\s*", "g"), ""))
+    media.map((item) =>
+      text.trim() !== item.url
+        ? (text = text.replace(new RegExp("\\s*" + item.url + "\\s*", "g"), ""))
+        : null
     );
   }
 
