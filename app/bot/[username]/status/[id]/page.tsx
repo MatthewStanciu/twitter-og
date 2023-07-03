@@ -9,7 +9,14 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { username, id } = params;
-  const { text, user, photos, video } = await fetchTweet(id);
+  let { text, user, photos, video, media } = await fetchTweet(id);
+
+  if (media) {
+    media.map(
+      (item: any) =>
+        (text = text.replace(new RegExp("\\s*" + item.url + "\\s*", "g"), ""))
+    );
+  }
 
   const photoUrls: string[] = [];
   photos.map((photo) => photoUrls.push(photo.url));
