@@ -1,5 +1,6 @@
 import { fetchTweet } from "@/lib/fetchTweet";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
+import { redirect } from "next/navigation";
 
 interface PageProps {
   params: { username: string; id: string };
@@ -21,6 +22,6 @@ export async function generateMetadata({
 }
 
 export default function Page({ params }: PageProps) {
-  console.log({ params });
-  return <h1>{JSON.stringify(params)}</h1>;
+  const { username, id } = params;
+  return redirect(`https://twitter.com/${username}/status/${id}`);
 }
