@@ -1,3 +1,4 @@
+import { normalizeText } from "./normalizeText";
 import { Media, Photo, TweetData, User, Video } from "./types";
 
 interface TweetDataSubset {
@@ -13,7 +14,9 @@ export async function fetchTweet(id: string): Promise<TweetDataSubset> {
 
   const res = await fetch(`${baseUrl}?id=${id}`);
   const data: TweetData = await res.json();
-  const { text, user, photos, video, entities } = data;
+  const { user, photos, video, entities } = data;
+  const text = normalizeText(data);
+
   return {
     text,
     user,
