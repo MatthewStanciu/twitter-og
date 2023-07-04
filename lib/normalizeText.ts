@@ -1,4 +1,4 @@
-import { TweetData } from "./types";
+import type { TweetData } from "./types";
 
 export function normalizeText(data: TweetData) {
   let text = data.text;
@@ -12,8 +12,8 @@ export function normalizeText(data: TweetData) {
     );
   }
   if (data.entities.urls) {
-    // the `text` object includes t.co links by default.
-    // Replace with the real URls.
+    // the `text` property includes t.co links by default.
+    // Replace with the real URLs.
     for (let i = 0; i < data.entities.urls.length; i++) {
       let urlObj = data.entities.urls[i];
       let urlRegex = new RegExp(urlObj.url, "g");

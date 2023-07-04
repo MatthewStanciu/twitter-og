@@ -1,5 +1,5 @@
 import { normalizeText } from "./normalizeText";
-import { Media, Photo, TweetData, User, Video } from "./types";
+import type { Media, Photo, TweetData, User, Video } from "./types";
 
 interface TweetDataSubset {
   text: string;

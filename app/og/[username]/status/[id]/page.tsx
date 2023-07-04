@@ -1,5 +1,5 @@
 import { fetchTweet } from "@/lib/fetchTweet";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 interface PageProps {
   params: { username: string; id: string };

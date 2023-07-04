@@ -8,4 +8,4 @@ Thankfully, there’s an API for embedding tweets that’s still publicly access
 
 <img width="370" alt="Screenshot of a link in iMessage with the caption 'I will be frontlining Glastonbury' and with a picture of a bear jumping in shallow water" src="https://github.com/MatthewStanciu/twitter-og/assets/14811170/22da3f77-b747-4185-8e78-9b91b3a86cda">
 
-To use it, simply replace twitter.com with twitter-og.com in the link to any Twitter post. Clicking on a twitter-og.com link will still take you to the tweet.
+To use it, simply replace `twitter.com` with `twitter-og.com` in the link to any Twitter post. Clicking on a `twitter-og.com` link will still take you to the tweet.
