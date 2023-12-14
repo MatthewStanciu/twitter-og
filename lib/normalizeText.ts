@@ -17,7 +17,7 @@ export function normalizeText(data: TweetData) {
     for (let i = 0; i < data.entities.urls.length; i++) {
       let urlObj = data.entities.urls[i];
       let urlRegex = new RegExp(urlObj.url, "g");
-      text = text.replace(urlRegex, urlObj.display_url);
+      text = text.replace(urlRegex, urlObj.expanded_url);
     }
   }
 
